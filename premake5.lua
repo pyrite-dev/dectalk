@@ -1,0 +1,22 @@
+project("libdtc")
+	kind("StaticLib")
+	targetdir("lib/%{cfg.buildcfg}/%{cfg.platform}")
+	includedirs("include")
+	files("src/*.c")
+	defines({
+		"SIMULATOR",
+		"SINGLE_THREADED",
+		"HACK_ALERT",
+		"FULL_LANGUAGE_SUPPORT",
+		"FULL_LTS",
+		"NO_INDEXES",
+		"DIRECT_LTS_INPUT",
+		"ACNA",
+		"HOMOGRAPHS",
+		"MATH_MODE",
+		"DIVIDED_LTS_RULES",
+		"OUTPUT_FILE",
+		"SINGLE_LANGUAGE",
+		"Multiple_Sample_Rates",
+		"LOAD_DICT_FILE"
+	})
