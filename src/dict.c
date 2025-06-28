@@ -28,8 +28,9 @@ char *d_lookup(LETTER llp[], char table[]) {
     int bytes = get_long_int((char *) &mdict[4]);
     char *indices = &mdict[8];
     char *data = &mdict[(entries * 4) + 8];
+    int j;
 
-    for (int j = 0; j < entries; j++) {
+    for (j = 0; j < entries; j++) {
         int test = 1;
         int ind = get_long_int(&indices[j * 4]);
         char *entry = &data[ind + 4];
