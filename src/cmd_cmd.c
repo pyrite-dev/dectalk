@@ -46,7 +46,9 @@
 short cmd_number;
 short cmd_count;
 
+#ifndef _MSC_VER
 __attribute__((section(".data"))) // this fixes readonly memory hardfault on rpi pico
+#endif
 short insertflag = 0;
 
 char tempa[60];
