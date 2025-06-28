@@ -5,6 +5,10 @@
 #include "kernel.h"
 #include "vtm_idef.h"
 
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
+
 static double Tone( double, double * );
 
 #define  RISE_TIME	 0.002
