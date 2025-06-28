@@ -31,6 +31,7 @@ int PlayTones(double DurationInMsec, double Freq_0, double Amp_0, double Freq_1,
     double Phase_0;
     double PhaseIncrement_1;
     double Phase_1;
+    double* pRiseBuffer;
     DWORD dwDurationInFrames;
 
     // adjust volume to avoid clipping
@@ -48,7 +49,7 @@ int PlayTones(double DurationInMsec, double Freq_0, double Amp_0, double Freq_1,
       iCenterSamples = 0;
     }
 
-    double pRiseBuffer[iRiseSamples];
+    pRiseBuffer = malloc(iRiseSamples * sizeof(*pRiseBuffer));
 
     /********************************************************************/
     /*  Allocate the tone audio buffer.                                 */
@@ -128,7 +129,7 @@ int PlayTones(double DurationInMsec, double Freq_0, double Amp_0, double Freq_1,
     }
     //OutputData( phTTS, pToneBuffer, iRiseSamples, TONE_SYMBOL, 0,0 );
     write_wav(pToneBuffer, iRiseSamples);
-    //free( pRiseBuffer );
+    free( pRiseBuffer );
     //free( pToneBuffer );
     return( FALSE );
 }
