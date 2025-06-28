@@ -95,8 +95,6 @@ int	cmd_tsr();			/* [:tsr modes.. */
 extern int vtm_loop(unsigned short *);
 
 int cmd_tone() {
-    printf("Tone Command\n");
-
     unsigned short pipe[6];
     //if ( cm_cmd_sync(phTTS) == CMD_flushing )
     //    return( CMD_flushing );
