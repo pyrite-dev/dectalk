@@ -3,6 +3,7 @@ project("libdtc")
 	targetdir("lib/%{cfg.buildcfg}/%{cfg.platform}")
 	includedirs("include")
 	files("src/*.c")
+	characterset("MBCS")
 	defines({
 		"SIMULATOR",
 		"SINGLE_THREADED",
