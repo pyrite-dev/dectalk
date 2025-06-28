@@ -172,6 +172,11 @@ int vtm_loop(unsigned short *input) {
     int16_t temp5;
     int16_t temp6;
     int16_t tempAB;
+#ifdef _MSC_VER
+    short spf;
+#else
+    int16_t spf;
+#endif
     control=input[0];
 
     switch ( control & SPC_TYPE_MASK) {
@@ -213,11 +218,6 @@ int vtm_loop(unsigned short *input) {
             break;
         // TODO: SPC_type_index & SPC_type_force
         case SPC_type_samples_per_frame:
-#ifdef _MSC_VER
-	    short spf;
-#else
-	    int16_t spf;
-#endif
             InitializeVTM();
             global_spc_buf[1] = input[1];
             spf = ((((uiSampleRate * 64) + 5000) / 10000) * global_spc_buf[1]) / 100;
