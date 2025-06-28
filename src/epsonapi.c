@@ -89,12 +89,14 @@ void loadDict() {
     FILE *dict_file = fopen("main.dict", "rb");
     if (dict_file) {
         // Get file size
+	long file_size;
+	unsigned char *file_dict;
         fseek(dict_file, 0, SEEK_END);
-        long file_size = ftell(dict_file);
+        file_size = ftell(dict_file);
         fseek(dict_file, 0, SEEK_SET);
         
         // Allocate memory for dictionary
-        unsigned char *file_dict = (unsigned char *)malloc(file_size);
+        file_dict = (unsigned char *)malloc(file_size);
         if (file_dict) {
             // Read file into memory
             if (fread(file_dict, 1, file_size, dict_file) == file_size) {
